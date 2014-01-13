@@ -12,7 +12,7 @@ html, body {
     user-select: none;
 }
 body {
-	background: #2c3437;
+	background: #101214;
 }
 ul li {
 	list-style: none;
@@ -22,23 +22,66 @@ ul li {
 	height: 100%;
 	text-align: center;
 }
-.box ul {
+.box .list {
 	width: 90%;
-	height: 95%;
+	height: 90%;
 	margin: 0 auto;
-	position: absolute;
-	top: 2.5%;
-	left: 5%;
+	position: relative;
 }
 
-.box ul li {
-	width: 30%;
+.box .list .item {
+	width: 32%;
 	height: 32%;
-	display: inline-block;
-	background: #535353;
+	background: #272727;
 	font-size: 45px;
 	color: #EBEBEB;
-	text-align: center;
-	margin: 5px;
 	cursor: move;
+	position: absolute;
 }
+.box .list .itemActive {
+	background: #363636;
+}
+.item.item1 {
+	left: 1%;
+	top: 1%;
+}
+
+.item.item2 {
+	left: 34%;
+	top: 1%;
+}
+
+.item.item3 {
+	left: 67%;
+	top: 1%;
+}
+
+.item.item4 {
+	left: 1%;
+	top: 34%;
+}
+
+.item.item5 {
+	left: 34%;
+	top: 34%;
+}
+
+.item.item6 {
+	left: 67%;
+	top: 34%;
+}
+.item.item7 {
+	left: 1%;
+	top: 67%;
+}
+
+.item.item8 {
+	left: 34%;
+	top: 67%;
+}
+
+.item.item9 {
+	left: 67%;
+	top: 67%;
+}
+
