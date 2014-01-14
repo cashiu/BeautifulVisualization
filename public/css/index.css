@@ -24,7 +24,7 @@ ul li {
 }
 .box .list {
 	width: 90%;
-	height: 90%;
+	height: 100%;
 	margin: 0 auto;
 	position: relative;
 }
@@ -40,6 +40,9 @@ ul li {
 }
 .box .list .itemActive {
 	background: #363636;
+}
+.item.itemRelated {
+	border: 2px solid gray;
 }
 .item.item1 {
 	left: 1%;
