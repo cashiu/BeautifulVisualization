@@ -11,7 +11,7 @@ define(function(require, exports, module) {
 
     /**
      * @method add
-     * 加
+     * 向量加法
      * @param {Object} v 例如{x: 1, y: 2}
      */
     Vec2.prototype.add = function(v) {
@@ -20,7 +20,7 @@ define(function(require, exports, module) {
 
     /**
      * @method sub
-     * 减
+     * 向量减法
      * @param {Object} v 例如{x: 1, y: 2}
      */
     Vec2.prototype.sub = function(v) {
@@ -29,7 +29,12 @@ define(function(require, exports, module) {
 
     /**
      * @method mul
-     * 乘
+     * 向量点乘（向量内积）
+     * 向量点乘结果描述了两个向量的相似程度，得到的结果越大，两个向量就越相近。点乘的结果和向量的夹角有关系：
+     * θ表示两个向量的夹角
+     * a * b > 0    θ >= 0 && θ < 90    方向基本相同
+     * a * b = 0    θ = 90              两个向量正交
+     * a * b < 0    θ > 90 && θ < 180   方向基本相反
      * @param {Object} v 例如{x: 1, y: 2}
      */
     Vec2.prototype.mul = function(v) {
@@ -48,6 +53,7 @@ define(function(require, exports, module) {
     /**
      * @method scale
      * 缩放
+     * 标量与向量的乘法。标量与向量相乘相当于改变向量的长度
      * @param  {Number} coef 系数
      */
     Vec2.prototype.scale = function(coef) {
@@ -122,7 +128,7 @@ define(function(require, exports, module) {
 
     /**
      * @method equals
-     *
+     * 判断两个向量是否相等（大小和方向）
      * @param  {Object} v 例如{x: 1, y: 2}
      */
     Vec2.prototype.equals = function(v) {
@@ -133,11 +139,15 @@ define(function(require, exports, module) {
         return Math.abs(this.x - v.x) <= epsilon && Math.abs(this.y - v.y) <= epsilon;
     }
 
-    Vec2.prototype.length = function(v) {
-        return Math.sqrt(this.x * this.x + this.y * this.y);
+    /**
+     * @method length
+     * 向量的长度
+     */
+    Vec2.prototype.length = function() {
+        return Math.sqrt(this.length2());
     }
 
-    Vec2.prototype.length2 = function(v) {
+    Vec2.prototype.length2 = function() {
         return this.x * this.x + this.y * this.y;
     }
 

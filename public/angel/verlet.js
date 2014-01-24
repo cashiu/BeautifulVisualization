@@ -3,23 +3,17 @@
  */
 define(function(require, exports, module) {
 
-    window.requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
-        window.setTimeout(callback, 1000 / 60);
+    window.requestAnimFrame =
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+            window.setTimeout(callback, 1000 / 60);
     };
 
     var Vec2 = require('./vec2');
-
-    function Particle(pos) {
-        this.pos = (new Vec2()).mutableSet(pos);
-        this.lastPos = (new Vec2()).mutableSet(pos);
-    }
-
-    Particle.prototype.draw = function(ctx) {
-        ctx.beginPath();
-        ctx.arc(this.pos.x, this.pos.y, 2, 0, 2 * Math.PI);
-        ctx.fillStyle = "#2dad8f";
-        ctx.fill();
-    }
 
     function VerletJS(width, height, canvas) {
         this.width = width;
@@ -207,10 +201,20 @@ define(function(require, exports, module) {
         return entity;
     }
 
+    function Particle(pos) {
+        this.pos = (new Vec2()).mutableSet(pos);
+        this.lastPos = (new Vec2()).mutableSet(pos);
+    }
+
+    Particle.prototype.draw = function(ctx) {
+        ctx.beginPath();
+        ctx.arc(this.pos.x, this.pos.y, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = "#2dad8f";
+        ctx.fill();
+    }
 
     exports = module.exports = VerletJS
     exports.Particle = Particle
     exports.Composite = Composite
-
 
 });
