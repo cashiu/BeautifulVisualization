@@ -1,15 +1,15 @@
 define(function(require, exports, module) {
     require('jquery');
 
-    var winWidth = $(window).width();
-    var winHeight = $(window).height();
+    var winWidth = $(window).width(),
+        winHeight = $(window).height();
 
-    var $box = $('#box');
-    var $list = $('#list');
-    var $items = $('.item');
+    var $box = $('#box'),
+        $list = $('#list'),
+        $items = $('.item');
 
-    var listLeft = $list.offset().left;
-    var listTop = $list.offset().top;
+    var listLeft = $list.offset().left,
+        listTop = $list.offset().top;
 
     var pos = [];
     for (var i = 0; i < $items.length; i++) {
@@ -65,10 +65,6 @@ define(function(require, exports, module) {
                 startMove(self, pos[self.index]);
             }
         });
-
-        function moveHandler(e) {
-
-        }
     });
 
     /**
@@ -125,7 +121,6 @@ define(function(require, exports, module) {
                 }
             }
         }
-
         return ret;
     }
 
